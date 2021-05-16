@@ -10,12 +10,14 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(fileUpload());
 app.use("/data", express.static("data"));
 
-require("./app/routes/news.routes.js")(app);
-require("./app/routes/banner.routes.js")(app);
+require("./app/routes/news.routes")(app);
+require("./app/routes/banner.routes")(app);
 require("./app/routes/category.routes")(app);
 require("./app/routes/user.routes")(app);
 require("./app/routes/images.route")(app);
 require("./app/routes/mark.routes")(app);
+require("./app/routes/follow.routes")(app);
+require("./app/routes/report.routes")(app);
 app.get("/", (req, res) => {
   res.json({ send: "Welcome to my app" });
 });
