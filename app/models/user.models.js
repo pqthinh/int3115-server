@@ -2,6 +2,7 @@ const sql = require("./db.js");
 
 // constructor
 const User = function(user) {
+  this.id = user.id,
   this.email = user.email;
   this.name = user.name;
   this.mobile = user.mobile;
@@ -9,6 +10,7 @@ const User = function(user) {
   this.status = user.status;
   this.role = user.role;
   this.avatar = user.avatar;
+  this.token = "ya29.a0AfH6SMC_6YGJ6nIu3Iwpn4quI1Uxksvzknnr6-IxyToppCNfrl9n58Y2S-mawe9HAvVgIBgZhnSWEju2fkvuatbDNJjbMlFtOE-szefpGNPSlYPOv1U4LUe1eexAGADq12q9OuAmrdLQjBFTiCGBBJ9oIEgG"
 };
 
 
@@ -27,7 +29,6 @@ User.getAll = result => {
 
 User.login_ = (email, password, result) => {
     let cm = `select * from user where email = ? and password = ?`;
-    // cm = `select * from user where email = ${email} and password = ${password}`
     sql.query(cm, [email, password], (err, res) => {
         if (err) {
             console.log("error: ", err);
@@ -36,7 +37,7 @@ User.login_ = (email, password, result) => {
         }
         if (res.length == 1) {
             console.log("Dang nhap thanh cong");
-            result(null, res[0]);
+            result(null, new User(res[0]));
         }
         else
         {
@@ -54,6 +55,19 @@ User.create = (newNews, result) => {
     }
 
     console.log("created user: ", { id: res.insertId, ...newNews });
+    result(null, { id: res.insertId, ...newNews });
+  });
+};
+
+User.update = (newNews, result) => {
+  sql.query("UPDATE user SET ? where id = ?", newNews, (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(err, null);
+      return;
+    }
+
+    console.log("update user: ", { id: res.insertId, ...newNews });
     result(null, { id: res.insertId, ...newNews });
   });
 };
