@@ -11,7 +11,6 @@ var connection = mysql.createConnection({
 connection.connect((error) => {
   if (error) {
     console.log("error when connecting to db:", error);
-    // setTimeout(handleDisconnect, 60000);
   } else console.log("Successfully connected to the database.");
 });
 

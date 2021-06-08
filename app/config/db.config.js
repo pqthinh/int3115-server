@@ -6,8 +6,15 @@ const dbrm = {
   DB: "ZduVtEX3Nd",
 };
 // database localhost
+// const db = {
+//   HOST: "192.168.101.106",
+//   USER: "thinhpq",
+//   PASSWORD: "",
+//   DB: "fchotot",
+// };
+
 const db = {
-  HOST: "192.168.101.106",
+  HOST: "192.168.1.8",
   USER: "thinhpq",
   PASSWORD: "",
   DB: "fchotot",
