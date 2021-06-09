@@ -20,4 +20,11 @@ const db = {
   DB: "fchotot",
 };
 
-module.exports = db;
+const int3115 = {
+  HOST: "remotemysql.com",
+  USER: "rxCNxkbErT",
+  PASSWORD: "SbydOBVOeE",
+  DB: "rxCNxkbErT",
+};
+
+module.exports = int3115;
