@@ -14,7 +14,7 @@ const dbrm = {
 // };
 
 const db = {
-  HOST: "192.168.1.8",
+  HOST: "192.168.1.6",
   USER: "thinhpq",
   PASSWORD: "",
   DB: "fchotot",
